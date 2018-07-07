@@ -1,0 +1,74 @@
+@keyframes appear {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0px);
+  }
+}
+
+@keyframes appear-shadow-red {
+  from { text-shadow: 0px 0px $color--red; }
+  to { text-shadow: 4px 4px $color--red; }
+}
+
+@keyframes appear-shadow-white {
+  from { text-shadow: 0px 0px $color--white; }
+  to { text-shadow: 4px 4px $color--white; }
+}
+
+@keyframes settle {
+  from { transform: translateY(0); }
+  to { transform: translateY(20px); }
+}
+
+/* _logo default */
+@include default {
+  .logo {
+    @include base-font(80px);
+    font-weight: 700;
+    animation: settle 0.2s 2.5s forwards;
+  }
+
+  .logo__re {
+    display: inline-block;
+    position: relative;
+    opacity: 0;
+    color: $color--red;
+    animation: appear 0.2s 1s forwards, appear-shadow-white 0.2s 2s forwards;
+    margin-right: 4px;
+  }
+
+  .logo__unite {
+    display: inline-block;
+    position: relative;
+    opacity: 0;
+    color: $color--white;
+    animation: appear 0.2s 1.5s forwards, appear-shadow-red 0.2s 2s forwards;
+  }
+
+  .logo__tagline {
+    opacity: 0;
+    max-width: 300px;
+    margin: 0 auto $base-margin*4 auto;
+    animation: appear 0.2s 2.5s forwards;
+  }
+}
+
+/* _logo small-only */
+@include small-only {
+}
+
+/* _logo medium-only */
+@include medium-only {
+}
+
+/* _logo medium-and-above */
+@include medium-and-above {
+}
+
+/* _logo large-and-above */
+@include large-and-above {
+}

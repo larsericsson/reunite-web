@@ -1,0 +1,29 @@
+/*
+ * _base.scss
+ *
+ * This is a good place to put 'opinionated' resets.
+ */
+
+html { box-sizing: border-box; }
+
+body {
+  line-height: 1;
+  color: $color--typography-base;
+  text-align: center;
+  background-color: $color--black;
+}
+
+*,
+*:before,
+*:after { box-sizing: inherit; }
+
+// Prevent overflowing of images in fluid containers
+img { max-width: 100%; }
+
+ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+p { line-height: 1.2; }
