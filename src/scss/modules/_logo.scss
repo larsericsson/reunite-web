@@ -10,18 +10,39 @@
 }
 
 @keyframes appear-shadow-red {
-  from { text-shadow: 0px 0px $color--red; }
-  to { text-shadow: 4px 4px $color--red; }
+  from {
+    text-shadow: 0px 0px $color--red;
+  }
+  to {
+    text-shadow: 4px 4px $color--red;
+  }
 }
 
 @keyframes appear-shadow-white {
-  from { text-shadow: 0px 0px $color--white; }
-  to { text-shadow: 4px 4px $color--white; }
+  from {
+    text-shadow: 0px 0px $color--white;
+  }
+  to {
+    text-shadow: 4px 4px $color--white;
+  }
+}
+
+@keyframes appear-shadow-grey {
+  from {
+    text-shadow: 0px 0px $color--shadow-grey;
+  }
+  to {
+    text-shadow: 4px 4px $color--shadow-grey;
+  }
 }
 
 @keyframes settle {
-  from { transform: translateY(0); }
-  to { transform: translateY(20px); }
+  from {
+    transform: translateY(0);
+  }
+  to {
+    transform: translateY(20px);
+  }
 }
 
 /* _logo default */
@@ -37,7 +58,7 @@
     position: relative;
     opacity: 0;
     color: $color--red;
-    animation: appear 0.2s 1s forwards, appear-shadow-white 0.2s 2s forwards;
+    animation: appear 0.2s 1s forwards, appear-shadow-grey 0.2s 2s forwards;
     margin-right: 4px;
   }
 
@@ -46,14 +67,21 @@
     position: relative;
     opacity: 0;
     color: $color--white;
-    animation: appear 0.2s 1.5s forwards, appear-shadow-red 0.2s 2s forwards;
+    animation: appear 0.2s 1.5s forwards, appear-shadow-grey 0.2s 2s forwards;
   }
 
   .logo__tagline {
     opacity: 0;
     max-width: 300px;
-    margin: 0 auto $base-margin*4 auto;
+    margin: 0 auto $base-margin * 4 auto;
     animation: appear 0.2s 2.5s forwards;
+  }
+
+  .logo__twitch {
+    margin-left: 10px;
+    width: 30px;
+    top: 5px;
+    position: relative;
   }
 }
 
