@@ -26,14 +26,14 @@ function get(url) {
 function cors(response, origin) {
     return response.set('Access-Control-Allow-Origin', origin)
         .set('Access-Control-Allow-Methods', 'GET, POST')
-        .set('Access-Control-Allow-Headers', 'Content-Type');;
+        .set('Access-Control-Allow-Headers', 'Content-Type');
 }
 
 // Do shit here :)
 function getPlayer(player) {
     return new Promise(((resolve, reject) => {
-        get('https://stats.quake.com/api/v2/Player/Stats?name=' + player)
-            .then((data) => {
+        get('https://stats.quake.com/api/v2/Player/Stats?name=' + player).then(
+            (data) => {
                 let stats = {
 
                 };
@@ -43,8 +43,9 @@ function getPlayer(player) {
                     icon: 'https://stats.quake.com/icons/' + data.playerLoadOut.iconId + '.png'
 
                 };
-                resolve(stats);
-            });
+                return resolve(stats);
+            }
+        ).catch(err => reject(err));
     }));
 
 }
@@ -60,12 +61,13 @@ exports.playerStats = functions.https.onRequest((request, response) => {
             player => {
                 promises.push(getPlayer(player).then((stats) => {
                     body[player] = stats;
-                }));
+                    return stats;
+                }).catch(err => console.error(err)));
             }
         );
 
         Promise.all(promises).then(() => {
-            cors(response, '*').send(JSON.stringify({data: body}));
-        });
+            return cors(response, '*').send(JSON.stringify({data: body}));
+        }).catch(err => console.error(err));
     }
 });
