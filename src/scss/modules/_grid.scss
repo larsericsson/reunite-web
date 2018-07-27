@@ -40,7 +40,7 @@
     li {
       line-height: 1.7;
       color: $color--grey;
-      margin-bottom: 10px;
+      margin-bottom: $base-margin;
     }
 
     em {
@@ -93,13 +93,24 @@
     }
   }
 
+  .grid__header-container {
+    padding: $base-margin * 2;
+  }
+
   .grid__section--video {
     width: 800px;
     height: 100%;
     min-height: 400px;
   }
 
-  li {
-    text-align: left;
+  .grid__list {
+    li {
+      text-align: left;
+      margin-bottom: $base-margin * 2;
+
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
   }
 }

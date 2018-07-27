@@ -557,7 +557,7 @@ body {
 .grid__list li {
   line-height: 1.7;
   color: #bbbbbb;
-  margin-bottom: 10px; }
+  margin-bottom: 16px; }
 
 .grid__list em {
   color: #000;
@@ -863,12 +863,17 @@ body {
     .grid__section--left {
       -ms-flex-pack: left;
           justify-content: left; }
+  .grid__header-container {
+    padding: 32px; }
   .grid__section--video {
     width: 800px;
     height: 100%;
     min-height: 400px; }
-  li {
-    text-align: left; }
+  .grid__list li {
+    text-align: left;
+    margin-bottom: 32px; }
+    .grid__list li:last-child {
+      margin-bottom: 0; }
   @keyframes appear {
     from {
       opacity: 0;
