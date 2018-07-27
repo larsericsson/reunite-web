@@ -9,4 +9,16 @@
   };
 
   firebase.initializeApp(firebaseConfig);
+
+  var functions = firebase.functions();
+
+  // Dev mode
+  functions.useFunctionsEmulator('http://localhost:5001');
+
+  var playerStats = functions.httpsCallable('playerStats');
+
+  playerStats(['nitrino']).then(function(result) {
+    console.log(result);
+  });
+
 })();
