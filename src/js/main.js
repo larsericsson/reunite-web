@@ -13,7 +13,7 @@
   var functions = firebase.functions();
 
   // Dev mode
-  functions.useFunctionsEmulator('http://localhost:5001');
+  //functions.useFunctionsEmulator('http://localhost:5001');
 
   var playerStats = functions.httpsCallable('playerStats');
 
